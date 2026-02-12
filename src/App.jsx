@@ -34,7 +34,7 @@ function App() {
         <BentoCard title="Backend">
           <div className="flex justify-around items-center h-full text-secondary">
              {/* Icônes ici plus tard */}
-             <div className="bg-secondary/20 rounded-lg w-10 h-10 animate-pulsea" />
+             <div className="bg-secondary/20 rounded-lg w-10 h-10 animate-pulse" />
           </div>
         </BentoCard>
       </div>
