@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BentoCard } from './components/ui/BentoCard';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="mx-auto p-8 max-w-7xl min-h-screen">
+      <header className="mb-12">
+        <h1 className="bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold text-transparent text-4xl">
+          Portfolio 2026
+        </h1>
+      </header>
+
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-3">
+        <BentoCard title="Tech Stack" className="md:row-span-2">
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 rounded-full text-xs glass">React</span>
+            <span className="px-3 py-1 rounded-full text-xs glass">Node.js</span>
+          </div>
+        </BentoCard>
+
+        <BentoCard title="Projets" className="md:col-span-2">
+          <p className="font-light text-2xl">Exploration de projets innovants.</p>
+        </BentoCard>
+
+        <BentoCard title="Code Snippet">
+          <pre className="font-mono text-[10px] text-primary/80">
+            {`const dev = {
+  name: 'Portfolio',
+  version: '2026'
+};`}
+          </pre>
+        </BentoCard>
+        
+        {/* Backend - Carré */}
+        <BentoCard title="Backend">
+          <div className="flex justify-around items-center h-full text-secondary">
+             {/* Icônes ici plus tard */}
+             <div className="bg-secondary/20 rounded-lg w-10 h-10 animate-pulse" />
+          </div>
+        </BentoCard>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </main>
+  );
 }
 
-export default App
+export default App;
