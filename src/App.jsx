@@ -1,61 +1,75 @@
-import { BentoCard } from "./components/ui/BentoCard";
+import React from 'react';
+import Hero from './components/sections/Hero';
+import TechStack from './components/sections/TechStack';
+import BentoGrid from './components/sections/BentoGrid';
+import Contact from './components/sections/Contact';
+import './styles/index.css';
 
 function App() {
   return (
-    <main className="flex flex-col gap-10 mx-auto p-6 md:p-12 max-w-7xl min-h-screen">
-      <header>
-        <h1 className="font-black text-4xl md:text-6xl italic tracking-tighter">
-          <span className="text-white">PORTFOLIO</span>
-          <span className="ml-4 text-primary">2026</span>
-        </h1>
-      </header>
-
-      {/* Grille Bento - 4 colonnes sur PC */}
-      <div className="gap-4 grid grid-cols-1 md:grid-cols-4 auto-rows-[180px]">
-        
-        {/* Tech Stack - Vertical (2 lignes) */}
-        <div className="md:col-span-1 md:row-span-2">
-          <BentoCard title="Tech Stack" className="border-primary border-l-4 h-full">
-            <div className="flex flex-wrap gap-2 mt-4">
-              {['React', 'Node.js', 'Tailwind', 'Vite'].map(t => (
-                <span key={t} className="bg-primary/10 px-2 py-1 border border-primary/20 rounded-full text-[10px] text-primary">{t}</span>
-              ))}
+    <div className="min-h-screen">
+      {/* Navigation */}
+      <nav className="top-0 right-0 left-0 z-50 fixed border-dark-border border-b glass-effect">
+        <div className="mx-auto px-4 py-4 max-w-7xl">
+          <div className="flex justify-between items-center">
+            <div className="font-bold text-gradient text-2xl">
+              Portfolio
             </div>
-          </BentoCard>
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#home" className="text-gray-300 hover:text-cyber-blue transition-colors">
+                Home
+              </a>
+              <a href="#skills" className="text-gray-300 hover:text-cyber-blue transition-colors">
+                Skills
+              </a>
+              <a href="#projects" className="text-gray-300 hover:text-cyber-blue transition-colors">
+                Projects
+              </a>
+              <a href="#contact" className="text-gray-300 hover:text-cyber-blue transition-colors">
+                Contact
+              </a>
+            </div>
+            <button className="md:hidden text-gray-300">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
+      </nav>
 
-        {/* Projets - Large (2 colonnes) */}
-        <div className="md:col-span-2">
-          <BentoCard title="Projets" className="border-secondary border-t-4 h-full">
-            <p className="font-light text-gray-400 text-lg">Exploration d'interfaces futuristes.</p>
-          </BentoCard>
+      {/* Main Content */}
+      <main>
+        <div id="home">
+          <Hero />
         </div>
-
-        {/* Mobile - Petit carré */}
-        <div className="md:col-span-1">
-          <BentoCard title="Mobile" className="flex justify-center items-center opacity-50 h-full">
-            <span className="text-xs uppercase tracking-widest rotate-90">Soon</span>
-          </BentoCard>
+        <div id="skills">
+          <TechStack />
         </div>
-
-        {/* Backend - Petit carré */}
-        <div className="md:col-span-1">
-          <BentoCard title="Backend" className="border-secondary border-b-4 h-full">
-            <p className="font-bold text-secondary">Spring Boot</p>
-          </BentoCard>
+        <div id="projects">
+          <BentoGrid />
         </div>
+        <Contact />
+      </main>
 
-        {/* Code Snippet - Large (2 colonnes) */}
-        <div className="md:col-span-2">
-          <BentoCard title="Code Snippet" className="border-primary border-b-4 h-full">
-            <pre className="font-mono text-[10px] text-primary/70 italic">
-              {`{ status: "Building", year: 2026 }`}
-            </pre>
-          </BentoCard>
+      {/* Footer */}
+      <footer className="py-8 border-dark-border border-t">
+        <div className="mx-auto px-4 max-w-7xl text-center">
+          <p className="text-gray-400">
+            © 2026 RAZAFISON Kevin Fitahiana. Built with React & Tailwind CSS
+          </p>
+          <div className="flex justify-center gap-4 mt-4">
+            <a href="https://github.com/Kevin-Razafison" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyber-blue transition-colors">
+              GitHub
+            </a>
+            <span className="text-gray-600">•</span>
+            <a href="#contact" className="text-gray-400 hover:text-cyber-blue transition-colors">
+              Contact
+            </a>
+          </div>
         </div>
-
-      </div>
-    </main>
+      </footer>
+    </div>
   );
 }
 
