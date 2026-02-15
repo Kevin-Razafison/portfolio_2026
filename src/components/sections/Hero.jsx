@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import GlowButton from '../ui/GlowButton';
 
 const Hero = () => {
@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - CV BUTTON REMOVED FOR NOW */}
         <div 
           className="flex flex-wrap justify-center items-center gap-4 animate-slide-up"
           style={{ animationDelay: '0.3s' }}
@@ -54,9 +54,7 @@ const Hero = () => {
           <GlowButton onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} icon={ArrowRight}>
             View My Work
           </GlowButton>
-          <GlowButton variant="secondary" icon={Download}>
-            Download CV
-          </GlowButton>
+          {/* CV button will be added later when CV is ready */}
         </div>
 
         {/* Social Links */}
