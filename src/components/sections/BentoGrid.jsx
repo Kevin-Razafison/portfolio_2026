@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Video, Download, Smartphone } from 'lucide-react';
 import BentoCard from '../ui/BentoCard';
 import { projects } from '../../data/projects';
 
@@ -40,6 +40,16 @@ const BentoGrid = () => {
                     {project.category}
                   </span>
                 </div>
+
+                {/* APK Badge (if available) */}
+                {project.apkDownload && (
+                  <div className="top-4 left-4 absolute">
+                    <span className="flex items-center gap-1 bg-green-500/20 backdrop-blur-sm px-3 py-1 border border-green-400/50 rounded-full font-medium text-green-400 text-xs">
+                      <Smartphone size={12} />
+                      APK
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Project Content */}
@@ -70,6 +80,7 @@ const BentoGrid = () => {
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-3">
+                  {/* Live Demo */}
                   {project.link !== '#' && (
                     <a 
                       href={project.link}
@@ -78,9 +89,37 @@ const BentoGrid = () => {
                       className="flex items-center gap-2 text-cyber-blue hover:text-cyan-400 text-sm transition-colors"
                     >
                       <ExternalLink size={16} />
-                      Live Demo
+                      Live
                     </a>
                   )}
+
+                  {/* Video Demo */}
+                  {project.videoDemo && (
+                    <a 
+                      href={project.videoDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm transition-colors"
+                    >
+                      <Video size={16} />
+                      Video
+                    </a>
+                  )}
+
+                  {/* APK Download */}
+                  {project.apkDownload && (
+                    <a 
+                      href={project.apkDownload}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-green-400 hover:text-green-300 text-sm transition-colors"
+                    >
+                      <Download size={16} />
+                      APK
+                    </a>
+                  )}
+
+                  {/* GitHub Frontend */}
                   <a 
                     href={project.github}
                     target="_blank"
@@ -90,6 +129,8 @@ const BentoGrid = () => {
                     <Github size={16} />
                     Frontend
                   </a>
+
+                  {/* GitHub Backend */}
                   {project.githubBackend && (
                     <a 
                       href={project.githubBackend}
@@ -102,6 +143,21 @@ const BentoGrid = () => {
                     </a>
                   )}
                 </div>
+
+                {/* Features List (if available) */}
+                {project.features && (
+                  <div className="mt-4 pt-4 border-dark-border border-t">
+                    <p className="mb-2 text-gray-500 text-xs">Key Features:</p>
+                    <ul className="space-y-1">
+                      {project.features.slice(0, 3).map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-gray-400 text-xs">
+                          <span className="mt-1 text-cyber-blue">•</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </BentoCard>
           ))}
