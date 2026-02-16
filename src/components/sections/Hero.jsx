@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import GlowButton from '../ui/GlowButton';
 
 const Hero = () => {
@@ -59,7 +59,7 @@ const Hero = () => {
             >
               21 years old, based in <span className="text-cyber-blue">Madagascar</span>. 
               Master's 2 student in Software Engineering & Database at the{' '}
-              <span className="text-cyber-purple">Centre National de Télé-Enseignement de Madagascar (CNTEMAD)</span>.
+              <span className="text-cyber-purple">National Distance Learning Centre of Madagascar</span>.
             </p>
 
             {/* Education Badge */}
@@ -82,6 +82,11 @@ const Hero = () => {
               <GlowButton onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })} icon={ArrowRight}>
                 View My Work
               </GlowButton>
+              <a href="Kevin-Razafison-CV-2026.pdf" download>
+                <GlowButton variant="secondary" icon={Download}>
+                  Download CV
+                </GlowButton>
+              </a>
             </div>
 
             {/* Social Links */}
