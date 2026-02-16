@@ -57,22 +57,24 @@ export const projects = [
       "Multi-user Support"
     ]
   },
-  {
+    {
     id: 4,
-    title: "Java Video Player",
-    description: "Desktop video player application developed in Java with media playback controls, playlist management, and modern UI.",
-    technologies: ["Java", "JavaFX", "Media API"],
+    title: "ARK Media Player",
+    description: "Cross-platform desktop video player application with modern JavaFX UI. Features playlist management, keyboard shortcuts, and support for multiple video formats. Available for Windows and Linux with professional installers.",
+    technologies: ["Java", "JavaFX", "Media API", "MSI", "DEB"],
     category: "Desktop",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
     link: "#",
-    github: "https://github.com/Kevin-Razafison/java-video-player",
-    videoDemo: "",
+    github: "https://github.com/Kevin-Razafison/ARKMediaPlayer",
+    videoDemo: "https://youtu.be/26rbnPtHeC8",
+    downloadWindows:"https://github.com/Kevin-Razafison/ArkMediaPlayer/releases/download/ARKMediaPLayer/windows-installer.zip",
+    downloadLinux:"https://github.com/Kevin-Razafison/ArkMediaPlayer/releases/download/ARKMediaPLayer/linux-installer.zip",
     features: [
-      "Video Playback Controls",
+      "Multi-format Video Playback (MP4, AVI, MKV)",
       "Playlist Management",
-      "Multiple Format Support",
-      "Modern JavaFX UI",
-      "Keyboard Shortcuts"
+      "Keyboard Shortcuts",
+      "Modern JavaFX Interface",
+      "Windows (.msi) & Linux (.deb) Installers"
     ]
   }
 ];

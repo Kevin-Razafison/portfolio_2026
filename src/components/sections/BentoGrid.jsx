@@ -41,12 +41,12 @@ const BentoGrid = () => {
                   </span>
                 </div>
 
-                {/* APK Badge (if available) */}
-                {project.apkDownload && (
+                {/* APK or Installer Badge */}
+                {(project.apkDownload || project.downloadWindows || project.downloadLinux) && (
                   <div className="top-4 left-4 absolute">
                     <span className="flex items-center gap-1 bg-green-500/20 backdrop-blur-sm px-3 py-1 border border-green-400/50 rounded-full font-medium text-green-400 text-xs">
-                      <Smartphone size={12} />
-                      APK
+                      <Download size={12} />
+                      {project.apkDownload ? 'APK' : 'Installers'}
                     </span>
                   </div>
                 )}
@@ -77,6 +77,37 @@ const BentoGrid = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Download Buttons for Desktop Apps */}
+                {(project.downloadWindows || project.downloadLinux) && (
+                  <div className="bg-dark-bg/30 mb-4 p-3 border border-dark-border rounded-lg">
+                    <p className="mb-2 text-gray-400 text-xs">Download Installers:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.downloadWindows && (
+                        <a 
+                          href={project.downloadWindows}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 bg-blue-500/20 hover:bg-blue-500/30 px-3 py-1.5 border border-blue-400/50 rounded text-blue-400 text-xs transition-colors"
+                        >
+                          <Download size={12} />
+                          Windows
+                        </a>
+                      )}
+                      {project.downloadLinux && (
+                        <a 
+                          href={project.downloadLinux}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1 bg-orange-500/20 hover:bg-orange-500/30 px-3 py-1.5 border border-orange-400/50 rounded text-orange-400 text-xs transition-colors"
+                        >
+                          <Download size={12} />
+                          Linux
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-3">
@@ -127,7 +158,7 @@ const BentoGrid = () => {
                     className="flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors"
                   >
                     <Github size={16} />
-                    Frontend
+                    Code
                   </a>
 
                   {/* GitHub Backend */}
